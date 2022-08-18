@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import NavbarComponent from './components/Navbar';
+import NavbarComponent from './components/Navbar/navbarComponent';
+import ItemListContainer from './container/itemListContainer';
 
 function App() {
   return (
     <div className="App">
-      <NavbarComponent/>
+      <NavbarComponent />
+      <ItemListContainer greeting="itemListContainer" />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
