@@ -2,13 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import NavbarComponent from './components/Navbar/navbarComponent';
 import ItemListContainer from './container/itemListContainer';
+import { useState, useEffect } from 'react';
+
 
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
     <div className="App">
-      <NavbarComponent />
-      <ItemListContainer greeting="itemListContainer" />
+      <NavbarComponent cart={cart} />
+      <br />
+      <ItemListContainer />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

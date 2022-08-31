@@ -1,15 +1,26 @@
-import Container from 'react-bootstrap/Container';
-import ItemCountComponent from "../components/itemCountComponent";
+import ItemListComponent from '../components/Item/itemListComponent';
+import { useState, useEffect } from 'react';
 
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
+    const [items, setItems] = useState([])
+
+    const getItems = async () => {
+        try {
+            const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=Ferrari');
+            const data = await response.json();
+            setItems(data.results);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        getItems();
+    }, [])
+
     return (
-        <Container>
-            <h3>{greeting}</h3>
-            <br />
-            <h2>Titulo Producto</h2> {/* lo voy a migrar a un componente el titulo en un futuro */}
-            <ItemCountComponent stock={5} initial={0} />
-        </Container>
+        <ItemListComponent items={items} />
     )
 }
 

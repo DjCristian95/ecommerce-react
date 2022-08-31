@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidgetComponent from './cartWidgetComponent';
 
-const NavbarComponent = () => {
+const NavbarComponent = (cart) => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -30,7 +30,7 @@ const NavbarComponent = () => {
                     </Nav>
                     <Nav>
                         <Navbar.Brand href="#">
-                            <CartWidgetComponent />
+                            <CartWidgetComponent cart={cart}/>
                         </Navbar.Brand>
                         <Nav.Link href="#login">Login</Nav.Link>
                     </Nav>

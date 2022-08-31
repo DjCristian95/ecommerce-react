@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
 
@@ -14,7 +13,7 @@ const ItemCountComponent = ({ stock, initial }) => {
   };
 
   const subtractQuantity = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity => quantity - 1);
     }
   };
@@ -23,20 +22,22 @@ const ItemCountComponent = ({ stock, initial }) => {
   return (
     <Container>
       <h5>Stock: {stock} </h5>
-      <ButtonGroup>
+    
+      <div class="btn-group" role="group" aria-label="Basic example">
         <Button className="btn btn-primary px-3" onClick={subtractQuantity}>
           <i className="fas fa-minus">-</i>
         </Button>
 
-        <input className={'text-center'} min={'0'} type={'number'} value={quantity} />
+        <input className="text-center col-md-6" type={'number'} value={quantity} />
 
         <Button className="btn btn-primary px-3" onClick={addQuantity}>
           <i className="fas fa-plus">+</i>
         </Button>
-      </ButtonGroup>
+      </div>
       <Container className='mt-1'>
-        <Button variant="outline-primary" className={'px-3'}>Agregar al carrito</Button>
+        <Button variant="outline-primary" className={'col-md-12'}>Agregar al carrito</Button>
       </Container>
+      
     </Container>
   );
 }
