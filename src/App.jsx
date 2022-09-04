@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import NavbarComponent from './components/Navbar/navbarComponent';
-import ItemListContainer from './container/itemListContainer';
+// import ItemListContainer from './container/itemListContainer';
+import ItemDetailContainer from './container/itemDetailContainer';
 import { useState, useEffect } from 'react';
+
 
 
 
@@ -13,7 +15,8 @@ function App() {
     <div className="App">
       <NavbarComponent cart={cart} />
       <br />
-      <ItemListContainer />
+      {/* <ItemListContainer /> */}
+      <ItemDetailContainer />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
