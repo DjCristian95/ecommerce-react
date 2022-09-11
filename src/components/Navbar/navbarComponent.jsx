@@ -8,7 +8,7 @@ const NavbarComponent = (cart) => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                     <img src="./logo_tienda.jpg"
                         width="40"
                         height="30"

@@ -2,7 +2,7 @@ import ItemDetailComponent from '../components/Item/itemDetailComponent';
 import { useState, useEffect } from 'react';
 
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = (key) => {
     const [items, setItems] = useState([])
 
     const getItems = async () => {

@@ -1,37 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 import NavbarComponent from './components/Navbar/navbarComponent';
-// import ItemListContainer from './container/itemListContainer';
+import ItemListContainer from './container/itemListContainer';
 import ItemDetailContainer from './container/itemDetailContainer';
 import { useState, useEffect } from 'react';
-
-
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState([]);
 
   return (
-    <div className="App">
-      <NavbarComponent cart={cart} />
-      <br />
-      {/* <ItemListContainer /> */}
-      <ItemDetailContainer />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavbarComponent cart={cart} setCart={setCart} />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/producto/:idProducto" element={<ItemListContainer />} />
+        <Route path="/categoria/:idCategoria" element={<ItemListContainer />} />
+        <Route path="/detalle/:idProducto" element={<ItemDetailContainer />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

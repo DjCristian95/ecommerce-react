@@ -10,7 +10,7 @@ function ItemListComponent({ items, ...props }) {
                 {items.map((item, idx) => {
                     return (
                         <Col key={idx} sm={3}>
-                            <ItemComponent title={item.title} thumbnail={item.thumbnail} price={item.price} currency_id={item.currency_id} />
+                            <ItemComponent title={item.title} thumbnail={item.thumbnail} price={item.price} currency_id={item.currency_id} key={idx} />
                         </Col>
                     )
                 })}
