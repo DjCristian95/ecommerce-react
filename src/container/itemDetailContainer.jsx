@@ -1,15 +1,17 @@
 import ItemDetailComponent from '../components/Item/itemDetailComponent';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useParams } from 'react';
 
 
 const ItemDetailContainer = (key) => {
-    const [items, setItems] = useState([])
+
+    const [items, setItems] = useState([]);
+    let {idProducto} = useParams();
 
     const getItems = async () => {
         try {
-            const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=Ferrari');
+            const response = await fetch('https://api.mercadolibre.com/items/${idProducto}');
             const data = await response.json(); 
-            setItems(data.results); 
+            setItems(data); 
         } catch (e) {
             console.log(e);
         }
@@ -20,7 +22,7 @@ const ItemDetailContainer = (key) => {
     }, [])
 
     return (
-       <ItemDetailComponent item={items[0]} />
+       <ItemDetailComponent item={items} />
     )
 }
 

@@ -17,8 +17,8 @@ const ItemDetailComponent = ({ item }) => {
                                 </div>
                                 <div className="product-gallery-thumblist order-sm-1">
                                     <a href="#first"><Image src={item.thumbnail} alt="" /></a>
-                                    <a  href="#second"><Image src={item.thumbnail} alt="" /></a>
-                                    <a  href="#third"><Image src={item.thumbnail} alt="" /></a>
+                                    <a href="#second"><Image src={item.thumbnail} alt="" /></a>
+                                    <a href="#third"><Image src={item.thumbnail} alt="" /></a>
                                 </div>
                             </div>
                         </div>

@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import NavbarComponent from './components/Navbar/navbarComponent';
 import ItemListContainer from './container/itemListContainer';
 import ItemDetailContainer from './container/itemDetailContainer';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {

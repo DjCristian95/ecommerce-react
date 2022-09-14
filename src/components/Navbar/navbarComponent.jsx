@@ -2,13 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 import CartWidgetComponent from './cartWidgetComponent';
 
 const NavbarComponent = (cart) => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="/">
+                <Link to="/">
                     <img src="./logo_tienda.jpg"
                         width="40"
                         height="30"
@@ -16,23 +17,23 @@ const NavbarComponent = (cart) => {
                         alt='logo'
                     />
                     Titulo-Tienda
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="navbar-nav mx-auto">
-                        <Nav.Link href="#novedades">Novedades</Nav.Link>
-                        <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+                        <Link to="/Novedades">Novedades</Link>
+                        <Link to="/Categorias"><NavDropdown title="Categorías" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Agendas</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Albums </NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Personalizados</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="#contacto">Contacto</Nav.Link>
+                        </NavDropdown></Link>
+                        <Link to="/Contacto">Contacto</Link>
                     </Nav>
                     <Nav>
                         <Navbar.Brand href="#">
                             <CartWidgetComponent cart={cart}/>
                         </Navbar.Brand>
-                        <Nav.Link href="#login">Login</Nav.Link>
+                        <Link to="/login">Login</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

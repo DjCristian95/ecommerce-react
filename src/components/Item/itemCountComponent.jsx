@@ -23,7 +23,7 @@ const ItemCountComponent = ({ stock, initial }) => {
     <Container>
       <h5>Stock: {stock} </h5>
     
-      <div class="btn-group" role="group" aria-label="Basic example">
+      <div className="btn-group" role="group" aria-label="Basic example">
         <Button className="btn btn-primary px-3" onClick={subtractQuantity}>
           <i className="fas fa-minus">-</i>
         </Button>
