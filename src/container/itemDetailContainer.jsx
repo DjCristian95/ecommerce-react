@@ -1,28 +1,30 @@
 import ItemDetailComponent from '../components/Item/itemDetailComponent';
-import { useState, useEffect, useParams } from 'react';
+import { useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 
 
 const ItemDetailContainer = (key) => {
 
-    const [items, setItems] = useState([]);
+    const [item, setItem] = useState([]);
     let {idProducto} = useParams();
-
-    const getItems = async () => {
+    idProducto = "MLA1148745900"; //hardcodeo de prueba
+    const getItem = async () => {
         try {
-            const response = await fetch('https://api.mercadolibre.com/items/${idProducto}');
+            const response = await fetch(`https://api.mercadolibre.com/items/${idProducto}`);
             const data = await response.json(); 
-            setItems(data); 
+            console.log("AAAAAAAAAAAAAAAAAAAA", data);
+            setItem(data); 
         } catch (e) {
             console.log(e);
         }
     }
 
     useEffect(() => {
-        getItems();
+        getItem();
     }, [])
 
     return (
-       <ItemDetailComponent item={items} />
+       <ItemDetailComponent item={item} />
     )
 }
 
