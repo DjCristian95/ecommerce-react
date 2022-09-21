@@ -1,11 +1,14 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
+import cartContext from '../../contexts/cartContext';
+import { useContext } from 'react';
 
 const CartWidgetComponent = ({ cart, ...props }) => {
     const [show, setShow] = useState(false);
     const windowCartClose = () => setShow(false);
     const windowCartShow = () => setShow(true);
+    const {cartContexts} = useContext(cartContext);
 
     console.log(cart);
 
@@ -18,13 +21,14 @@ const CartWidgetComponent = ({ cart, ...props }) => {
                     className="d-inline-block align-top"
                     alt='logo'
                 />
+                <span>{cartContexts.length}</span>
             </Button>
             <Offcanvas show={show} onHide={windowCartClose} {...props}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Tu carrito</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Prueba Cart
+                <span> Cantidad de items: {cartContexts.length}</span>
                 </Offcanvas.Body>
             </Offcanvas>
         </>
