@@ -7,7 +7,7 @@ const ItemDetailContainer = (key) => {
 
     const [item, setItem] = useState([]);
     let {idProducto} = useParams();
-    idProducto = "MLA1148745900"; //hardcodeo de prueba
+   // idProducto = "MLA1148745900"; //hardcodeo de prueba
     const getItem = async () => {
         try {
             const response = await fetch(`https://api.mercadolibre.com/items/${idProducto}`);
