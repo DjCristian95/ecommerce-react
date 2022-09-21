@@ -1,7 +1,17 @@
 import Image from 'react-bootstrap/Image'
 import Container from "react-bootstrap/Container";
+import {useContext} from 'react'
+import ItemCountComponent from './itemCountComponent'
+import {CartContext} from '../../contexts/cartContext'
 
 const ItemDetailComponent = ({ item }) => {
+
+    const { addItem } = useContext(CartContext);
+
+    const handlerAddItem = (quantity) => {
+        const add_item = {title: item.title, id: item.id, quantity};
+        addItem(add_item);
+    }
 
     return (
         <Container>
@@ -30,21 +40,9 @@ const ItemDetailComponent = ({ item }) => {
                                 <div className="mb-3">
                                     <span className="h3 fw-normal text-accent me-1">{item.currency_id} {item.price}</span>
                                 </div>
-                                <div className="position-relative me-n4 mb-3">
-                                    <div className="product-badge product-available mt-n1"><i className="ci-security-check"></i>Stock disponible: <span>{item.available_quantity}</span></div>
+                                <div className="mb-grid-gutter">
+                                    <ItemCountComponent stock={item.available_quantity} initial={1} handlerAddItem={handlerAddItem}/>
                                 </div>
-                                <form className="mb-grid-gutter" method="post">
-                                    <div className="mb-3 d-flex align-items-center">
-                                        <select className="form-select me-3">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                        <button className="btn btn-primary btn-shadow d-block w-100" type="submit"><i className="ci-cart fs-lg me-2"></i>Agregar al carrito</button>
-                                    </div>
-                                </form>
                                 <div className="accordion mb-4" id="productPanels">
                                     <div className="accordion-item">
                                         <h3 className="accordion-header"><a className="accordion-button" href="#productInfo" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i className="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Información del Producto</a></h3>

@@ -10,7 +10,7 @@ const NavbarComponent = (cart) => {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Link to="/">
-                    <img src="./logo_tienda.jpg"
+                    <img src='/logo_tienda.jpg'
                         width="40"
                         height="30"
                         className="d-inline-block align-top"
@@ -23,9 +23,15 @@ const NavbarComponent = (cart) => {
                     <Nav className="navbar-nav mx-auto">
                         <Link to="/Novedades">Novedades</Link>
                         <Link to="/Categorias"><NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Agendas</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Albums </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Personalizados</NavDropdown.Item>
+                            <Link to="/Categorias/1" className={'dropdown-item'}>
+                                Agendas
+                            </Link>
+                            <Link to="/Categorias/2" className={'dropdown-item'}>
+                                Albums
+                            </Link>
+                            <Link to="/Categorias/3" className={'dropdown-item'}>
+                                Personalizados
+                            </Link>
                         </NavDropdown></Link>
                         <Link to="/Contacto">Contacto</Link>
                     </Nav>

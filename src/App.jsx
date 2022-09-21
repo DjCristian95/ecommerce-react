@@ -4,13 +4,13 @@ import ItemListContainer from './container/itemListContainer';
 import ItemDetailContainer from './container/itemDetailContainer';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CartContext from './contexts/cartContext';
+import { CartProvider } from './contexts/cartContext';
 
 function App() {
   const [cart, setCart] = useState([]);
 
   return (
-    <CartContext.Provider>
+    <CartProvider>
       <BrowserRouter>
         <NavbarComponent cart={cart} setCart={setCart} />
         <Routes>
@@ -20,7 +20,7 @@ function App() {
           <Route path="/detalle/:idProducto" element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

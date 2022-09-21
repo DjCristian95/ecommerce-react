@@ -4,9 +4,18 @@ import Container from "react-bootstrap/Container";
 import ItemCountComponent from './itemCountComponent';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/cartContext'
 
-const ItemComponent = ({title, thumbnail, currency_id, price, key, id}) => {
-      
+const ItemComponent = ({title, thumbnail, currency_id, price, key, id, stock}) => {
+    
+    const { addItem } = useContext(CartContext);
+
+    const handlerAddItem = (quantity) => {
+        const item = {title, id, quantity};
+        addItem(item);
+    }
+
     return (
         <Container>
             <Card className="d-block text-center">
@@ -19,7 +28,7 @@ const ItemComponent = ({title, thumbnail, currency_id, price, key, id}) => {
                     <Link to={`/detalle/${id}`}><Button className="btn btn-primary px-4">Ver detalles</Button></Link>
                 </Card.Body>
                 <Card.Footer >
-                    <ItemCountComponent stock={5} initial={1} />
+                    <ItemCountComponent stock={stock} initial={1} handlerAddItem={handlerAddItem}/>
                 </Card.Footer>
             </Card>
             <br />

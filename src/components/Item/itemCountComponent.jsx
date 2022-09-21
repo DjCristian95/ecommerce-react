@@ -2,13 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
 
-const ItemCountComponent = ({ stock, initial }) => {
+const ItemCountComponent = ({ stock, initial, handlerAddItem }) => {
 
   const [quantity, setQuantity] = useState(parseInt(initial));
 
   const addQuantity = () => {
     if (quantity + 1 <= stock) {
       setQuantity(quantity => quantity + 1);
+    } else {
+      alert("El stock disponible es: " + stock);
     }
   };
 
@@ -35,9 +37,8 @@ const ItemCountComponent = ({ stock, initial }) => {
         </Button>
       </div>
       <Container className='mt-1'>
-        <Button variant="outline-primary" className={'col-md-12'}>Agregar al carrito</Button>
+        <Button variant="outline-primary" className={'col-md-12'} onClick={() => {handlerAddItem(quantity)}}>Agregar al carrito</Button>
       </Container>
-      
     </Container>
   );
 }

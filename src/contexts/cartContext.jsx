@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import { useState } from "react";
 
 
@@ -17,11 +17,11 @@ const CartProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addItem}}>
+        <CartContext.Provider value={{cart, addItem, removeItems}}>
             {children}
         </CartContext.Provider>
     )
 
 }
 
-export default {CartProvider, CartContext};
+export {CartProvider, CartContext};
