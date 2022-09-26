@@ -9,7 +9,7 @@ const ItemDetailComponent = ({ item }) => {
     const { addItem } = useContext(CartContext);
 
     const handlerAddItem = (quantity) => {
-        const add_item = {title: item.title, id: item.id, quantity};
+        const add_item = {title: item.title, id: item.id, quantity, price: item.price};
         addItem(add_item);
     }
 

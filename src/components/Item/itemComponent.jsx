@@ -12,7 +12,7 @@ const ItemComponent = ({title, thumbnail, currency_id, price, key, id, stock}) =
     const { addItem } = useContext(CartContext);
 
     const handlerAddItem = (quantity) => {
-        const item = {title, id, quantity};
+        const item = {title, id, quantity, price};
         addItem(item);
     }
 
