@@ -1,6 +1,6 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CartContext } from '../../contexts/cartContext'
 import { useContext } from 'react';
 
@@ -8,7 +8,12 @@ const CartWidgetComponent = ({ ...props }) => {
     const [show, setShow] = useState(false);
     const windowCartClose = () => setShow(false);
     const windowCartShow = () => setShow(true);
-    const { cart, removeItem, clearItems } = useContext(CartContext);
+    const { cart, removeItem, clearItems, total} = useContext(CartContext);
+    const [precioTotal, setPrecioTotal] = useState(0);
+    
+    useEffect(() =>{
+        setPrecioTotal(total())
+    }, [cart]);
 
     const handlerBorrar = (id) => {
         removeItem(id);
@@ -38,14 +43,14 @@ const CartWidgetComponent = ({ ...props }) => {
                 <Offcanvas.Body>
                     <span><b> Cantidad de items:</b> {cart.length}</span>
                     <br/><br/>
-                    <div class="row" align="center">
-                        <div class="col-5">
+                    <div className="row" align="center">
+                        <div className="col-5">
                             <b>Item</b>
                         </div>
-                        <div class="col-2">
+                        <div className="col-2">
                             <b>Cant.</b>
                         </div>
-                        <div class="col-2">
+                        <div className="col-2">
                             <b>Precio</b>
                         </div>
                     </div>
@@ -54,17 +59,17 @@ const CartWidgetComponent = ({ ...props }) => {
                             cart.map(item => {
                                 return (
                                     <li>
-                                        <div class="row">
-                                            <div class="col-5">
+                                        <div className="row">
+                                            <div className="col-5">
                                                 {item.title}
                                             </div>
-                                            <div class="col-2" align="center">
+                                            <div className="col-2" align="center">
                                                 {item.quantity}
                                             </div>
-                                            <div class="col-2" align="center">
+                                            <div className="col-2" align="center">
                                                 {item.price}
                                             </div>
-                                            <div class="col-2">
+                                            <div className="col-2">
                                                 <Button className="btn-danger" onClick={() => { handlerBorrar(item.id) }} > Borrar </Button>
                                             </div>
                                         </div>
@@ -74,7 +79,18 @@ const CartWidgetComponent = ({ ...props }) => {
                         }
                     </ul>
                 </Offcanvas.Body>
-                <Button className="btn-danger" onClick={clearItems} > Vaciar Carrito</Button>
+                <h1>Total: {precioTotal}</h1>
+                <span>
+                <div className="row justify-content-around" >
+                        <div className="col-5">
+                            <Button className="btn-danger" onClick={clearItems} > Vaciar Carrito</Button>
+                        </div>
+                        <div className="col-5">
+                        <Button className="btn-success" onClick={clearItems} > Finalizar Compra</Button>
+                        </div>
+                </div> 
+                </span>
+                <br/>
             </Offcanvas>
         </>
     )

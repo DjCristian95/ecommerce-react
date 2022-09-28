@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cartContext'
 
-const ItemComponent = ({title, thumbnail, currency_id, price, key, id, stock}) => {
+const ItemComponent = ({title, thumbnail, currency_id, price, id, stock}) => {
     
     const { addItem } = useContext(CartContext);
 
