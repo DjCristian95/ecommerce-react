@@ -22,13 +22,13 @@ const ItemDetailComponent = ({ item }) => {
                             <div className="product-gallery">
                                 <div className="product-gallery-preview order-sm-2">
                                     <figure className="ui-pdp-gallery__figure">
-                                        <Image data-zoom={item.thumbnail} data-index="0" width="410" height="500" decoding="async" src={item.thumbnail} className="ui-pdp-image ui-pdp-gallery__figure__image" alt="" />
+                                        <Image data-zoom={item.image} data-index="0" width="410" height="500" decoding="async" src={item.image} className="ui-pdp-image ui-pdp-gallery__figure__image" alt="" />
                                     </figure>
                                 </div>
                                 <div className="product-gallery-thumblist order-sm-1">
-                                    <a href="#first"><Image src={item.thumbnail} alt="" /></a>
-                                    <a href="#second"><Image src={item.thumbnail} alt="" /></a>
-                                    <a href="#third"><Image src={item.thumbnail} alt="" /></a>
+                                    <a href="#first"><Image src={item.image} alt="" /></a>
+                                    <a href="#second"><Image src={item.image} alt="" /></a>
+                                    <a href="#third"><Image src={item.image} alt="" /></a>
                                 </div>
                             </div>
                         </div>
@@ -38,17 +38,17 @@ const ItemDetailComponent = ({ item }) => {
                                     <span> <h1> {item.title} </h1> </span>
                                 </div>
                                 <div className="mb-3">
-                                    <span className="h3 fw-normal text-accent me-1">{item.currency_id} {item.price}</span>
+                                    <span className="h3 fw-normal text-accent me-1">{item.currency} {item.price}</span>
                                 </div>
                                 <div className="mb-grid-gutter">
-                                    <ItemCountComponent stock={item.available_quantity} initial={1} handlerAddItem={handlerAddItem}/>
+                                    <ItemCountComponent stock={item.stock} initial={1} handlerAddItem={handlerAddItem}/>
                                 </div>
                                 <div className="accordion mb-4" id="productPanels">
                                     <div className="accordion-item">
                                         <h3 className="accordion-header"><a className="accordion-button" href="#productInfo" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i className="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Información del Producto</a></h3>
                                         <div className="accordion-collapse collapse show" id="productInfo" data-bs-parent="#productPanels">
                                             <div className="accordion-body">
-                                                <h6 className="fs-sm mb-2">Acá va la descripción</h6>
+                                                <h6 className="fs-sm mb-2">{item.description}</h6>
                                             </div>
                                         </div>
                                     </div>
