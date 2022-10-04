@@ -1,6 +1,7 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/cartContext'
 import { useContext } from 'react';
 
@@ -58,7 +59,7 @@ const CartWidgetComponent = ({ ...props }) => {
                         {
                             cart.map(item => {
                                 return (
-                                    <li>
+                                    <li key={item.id}>
                                         <div className="row">
                                             <div className="col-5">
                                                 {item.title}
@@ -86,7 +87,7 @@ const CartWidgetComponent = ({ ...props }) => {
                             <Button className="btn-danger" onClick={clearItems} > Vaciar Carrito</Button>
                         </div>
                         <div className="col-5">
-                        <Button className="btn-success" onClick={clearItems} > Finalizar Compra</Button>
+                            <Link to={`finalizarCompra`}> <Button className="btn-success"> Finalizar Compra</Button></Link>
                         </div>
                 </div> 
                 </span>
