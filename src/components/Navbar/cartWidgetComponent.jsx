@@ -87,7 +87,7 @@ const CartWidgetComponent = ({ ...props }) => {
                             <Button className="btn-danger" onClick={clearItems} > Vaciar Carrito</Button>
                         </div>
                         <div className="col-5">
-                            <Link to={`finalizarCompra`}> <Button className="btn-success"> Finalizar Compra</Button></Link>
+                            <Link to={`finalizarCompra`}> <Button className="btn-success" onClick={windowCartClose}> Finalizar Compra</Button></Link>
                         </div>
                 </div> 
                 </span>

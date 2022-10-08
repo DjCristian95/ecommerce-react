@@ -24,7 +24,7 @@ const NavbarComponent = (cart) => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="navbar-nav mx-auto">
                         <Link to="/Novedades" style={{ color: 'snow', textDecoration: 'inherit', fontWeight: '600'}}>Novedades</Link>
-                        <Link to="/Categorias" style={{ color: 'snow', textDecoration: 'inherit', fontWeight: '600', marginTop: '-8px'}}>
+                        <Link to="/Categorias" style={{ color: 'snow', textDecoration: 'inherit', fontWeight: '600', marginTop: '-8px'}}>  
                             <NavDropdown title="Categorías">
                                 <NavDropdown.Item as={Link} to={'/Categorias/1'}>
                                     Agendas

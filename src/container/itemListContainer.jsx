@@ -6,7 +6,7 @@ import { getFirestore, getDocs, collection } from "firebase/firestore";
 const ItemListContainer = () => {
     const [items, setItems] = useState([])
 
-    const getItems = async () => {
+    const getItems = () => {
         try {
             const db = getFirestore();
             const itemDB = collection(db, "items");
