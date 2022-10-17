@@ -9,17 +9,16 @@ const CartWidgetComponent = ({ ...props }) => {
     const [show, setShow] = useState(false);
     const windowCartClose = () => setShow(false);
     const windowCartShow = () => setShow(true);
-    const { cart, removeItem, clearItems, total} = useContext(CartContext);
+    const { cart, removeItem, clearItems, total } = useContext(CartContext);
     const [precioTotal, setPrecioTotal] = useState(0);
-    
-    useEffect(() =>{
+
+    useEffect(() => {
         setPrecioTotal(total())
-    }, [cart]);
+    }, [cart, total]);
 
     const handlerBorrar = (id) => {
         removeItem(id);
     };
-
 
     return (
         <>
@@ -40,10 +39,10 @@ const CartWidgetComponent = ({ ...props }) => {
                         <Offcanvas.Title>Tu carrito esta vacío</Offcanvas.Title>
                     )}
                 </Offcanvas.Header>
-               
+                <hr />
                 <Offcanvas.Body>
                     <span><b> Cantidad de items:</b> {cart.length}</span>
-                    <br/><br/>
+                    <br /><br /><br />
                     <div className="row" align="center">
                         <div className="col-5">
                             <b>Item</b>
@@ -80,18 +79,18 @@ const CartWidgetComponent = ({ ...props }) => {
                         }
                     </ul>
                 </Offcanvas.Body>
-                <h1>Total: {precioTotal}</h1>
+                <h1 style={{ marginLeft: '4%' }} >Total: {precioTotal}</h1>
                 <span>
-                <div className="row justify-content-around" >
+                    <div className="row justify-content-around" >
                         <div className="col-5">
                             <Button className="btn-danger" onClick={clearItems} > Vaciar Carrito</Button>
                         </div>
                         <div className="col-5">
                             <Link to={`finalizarCompra`}> <Button className="btn-success" onClick={windowCartClose}> Finalizar Compra</Button></Link>
                         </div>
-                </div> 
+                    </div>
                 </span>
-                <br/>
+                <br />
             </Offcanvas>
         </>
     )

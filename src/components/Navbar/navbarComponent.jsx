@@ -17,7 +17,7 @@ const NavbarComponent = (cart) => {
                         alt='logo'
                     />
                     <span  style={{marginLeft:'8px'}}>
-                    Titulo-Tienda
+                    Tienda Cristian Murcia
                     </span>
                 </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
