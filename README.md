@@ -11,7 +11,7 @@ Se trata de un ecommerce básico donde se fueron desarrollando y aplicando los c
 
 ## Vista previa en vivo.
 
-Haga clic [aquí](https://markdownlivepreview.com/). para ver una vista previa en vivo.
+Haga clic [aquí](https://ecommerce-react-umber.vercel.app/). para ver una vista previa en vivo.
 
 ## Empezando
 
