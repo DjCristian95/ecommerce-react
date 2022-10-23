@@ -54,13 +54,13 @@ const ItemDetailComponent = ({ item }) => {
                                 </div>
                                 <br />
                                 <div className="accordion mb-4" id="productPanels">
-                                   
+                                    <div className="accordion-item">
                                         <h3 className="accordion-header"><a className="accordion-button" href="#productInfo" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i className="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Información del Producto</a></h3>
                                         <div className="accordion-collapse collapse show" id="productInfo" data-bs-parent="#productPanels">
                                             <div className="accordion-body">
                                                 <h6 className="fs-sm mb-2">{item.description}</h6>
                                             </div>
-                                      
+                                        </div>
                                     </div>
                                 </div>
                             </div>
